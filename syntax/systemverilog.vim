@@ -24,7 +24,7 @@ endif
 
 " A bunch of useful SV keywords
 syn keyword	svStatement	always always_comb always_ff always_latch assert
-syn keyword	svStatement	break return continue fork join disable force
+syn keyword	svStatement	break return continue fork join disable force release
 syn keyword	svStatement	join_any join_none frokjoin binsof intersect
 
 syn keyword	svLabel		bind constraint covergroup coverpoint
