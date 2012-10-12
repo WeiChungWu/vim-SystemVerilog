@@ -243,6 +243,7 @@ syn keyword svConstant	__LINE__ __FILE__ __DATE__ __TIME__
 syn keyword svConstant	__VERSION__ 
 
 syn match   svUserConstant "\<[A-Z][A-Z0-9_]\+\>"
+syn match   svUvmMacro  "`uvm_\w\+"
 
 syn match svClass 	"\zs\w\+\ze::"
 syn match svClass 	"\zs\w\+\ze\s\+\w\+\s*[=;,)\[]" contains=svConstant,svUserConstant
@@ -314,6 +315,7 @@ if version >= 508 || !exists("did_systemverilog_syn_inits")
   HiLink svClass		Identifier
   HiLink svObject		Identifier
   HiLink svUserMethod		Function
+  HiLink svUvmMacro		Function
   HiLink svTask                 Keyword
   HiLink svModifier		Tag
   HiLink svDeprecated		svError
