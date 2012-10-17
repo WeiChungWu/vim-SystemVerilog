@@ -96,7 +96,7 @@ function s:GetSVBlockStart(keyword, curr_lnum, mode)
     let pstart = '\<\%(case\%[zx]\|randcase\)\>'
   elseif a:keyword =~ '\<endgroup\>'
     let pend   = '\<endgroup\>'
-    let pstart = '\<covergruop\>'
+    let pstart = '\<covergroup\>'
   elseif a:keyword =~ '`else'
     let pend   = '`else'
     let pstart = '`if\%[n]def'
@@ -117,7 +117,7 @@ function s:GetSVBlockStart(keyword, curr_lnum, mode)
   let result = a:mode=='line'   ?  m_lnum :
              \ a:mode=='indent' ?  ind : 0
   if exists('b:sv_indent_verbose')
-    echo pend . ' ' . pstart . ' m:' . m_lnum . ' c:' . lnum . ' i:' . ind
+    echo pend . ' ' . pstart . ' m:' . m_lnum . ' c:' . lnum . ' i:' . ind . "\n"
   endif
   return result
 endfunction
