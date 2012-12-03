@@ -88,8 +88,8 @@ syn keyword	svOperator	or inside dist not
 syn keyword	svMethods	atobin atohex atoi atooct backref bittostr capacity
 syn keyword	svMethods	compare Configure constraint_mode DisableTrigger
 syn keyword	svMethods	DoAction empty EnableCount EnableTrigger Event find
-syn keyword	svMethods	find_index first_index GetAssert get_at_least
-syn keyword	svMethods	get_auto_bin getc GetCount get_coverage_goal get_cov_weight
+syn keyword	svMethods	find_index find_first find_first_index find_last find_last_index 
+syn keyword	svMethods	GetAssert get_at_least get_auto_bin getc GetCount get_coverage_goal get_cov_weight
 syn keyword	svMethods	get_cross_bin_max GetFirstAssert GetName GetNextAssert
 syn keyword	svMethods	get_status get_status_msg hide hash icompare insert
 syn keyword	svMethods	inst_get_at_least inst_get_auto_bin_max inst_get_collect
