@@ -102,7 +102,7 @@ syn keyword	svMethods	object_compare object_copy object_print pack pick_index
 syn keyword	svMethods	pop_back pop_front post_boundary postmatch post_pack post_pack
 syn keyword	svMethods	post_randomize post_randomize post_unpack post_unpack
 syn keyword	svMethods	pre_boundary prematch pre_pack pre_pack pre_randomize
-syn keyword	svMethods	pre-randomize pre_unpack push_back push_front putc query
+syn keyword	svMethods	pre-randomize pre_unpack product push_back push_front putc query
 syn keyword	svMethods	query_str rand_mode randomize reserve reverse rsort search
 syn keyword	svMethods	set_at_least set_auto_bin_max set_bin_activiation
 syn keyword	svMethods	set_coverage_goal set_cov_weight set_cross_bin_max 
