@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	SystemVerilog
-" Maintainer:	WeiChung Wu <exelion04@gmail.com>
+" Maintainer:	WeiChung Wu <exelion04 at gmail dot com>
 " Last Change:	2011 Aug 04
 "
 " Credits:

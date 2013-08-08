@@ -1,6 +1,6 @@
 " Vim filetype plugin file
 " Language:	SystemVerilog
-" Maintainer:	WeiChung Wu
+" Maintainer:	WeiChung Wu <exelion04 at gmail dot com>
 " Last Change:	Thu Jan 13 13:05:54 CST 2011
 
 " Only do this when not done yet for this buffer

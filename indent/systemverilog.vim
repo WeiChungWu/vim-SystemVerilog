@@ -1,5 +1,5 @@
 " Language:     SystemVerilog HDL
-" Maintainer:   WeiChung Wu <exelion04@gmail.com>
+" Maintainer:   WeiChung Wu <exelion04 at gmail dot com>
 " Last Change:  Thu Aug 22 18:53:42 CST 2011
 "
 " Credits:
