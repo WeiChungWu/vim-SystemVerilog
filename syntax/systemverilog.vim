@@ -28,15 +28,15 @@ syn keyword	svStatement	break return continue fork join disable force release
 syn keyword	svStatement	join_any join_none frokjoin binsof intersect
 
 syn keyword	svLabel		bind constraint covergroup coverpoint
-syn keyword	svLabel		class CLOCK clocking default function interface modport 
+syn keyword	svLabel		class CLOCK clocking default function interface modport
 syn keyword	svLabel		package program property randseq sequence specify
-syn keyword	svLabel		task 
-syn keyword	svLabel		begin initial module forever import randsequence 
-syn keyword	svLabel		end endclass endfunction endtask endprogram endmodule 
-syn keyword	svLabel		endinterface endpackage endproperty endsequence endclocking endgroup
+syn keyword	svLabel		task
+syn keyword	svLabel		begin initial module forever import
+syn keyword	svLabel		end endclass endfunction endtask endprogram endmodule
+syn keyword	svLabel		endinterface endpackage endproperty endclocking endgroup
 
 syn keyword	svConditional	if iff else case casex casez endcase randcase
-syn keyword	svConditional	unique priority
+syn keyword	svConditional	unique priority randsequence endsequence
 syn keyword 	svRepeat	repeat while for do foreach
 syn keyword 	svModifier	after all any around assoc_size async
 syn keyword 	svModifier	before big_endian bit_normal bit_reverse export
@@ -66,7 +66,7 @@ syn keyword 	svType		logic int mailbox input output inout unsigned time wire
 "syn keyword 	svTask		semaphore_get semaphore_put setstate signal_connect
 "syn keyword 	svTask		sprintf srandom sscanf stop suspend_thread sync
 "syn keyword 	svTask		trace trigger unit_delay unlock_file urand48
-"syn keyword 	svTask		urandom urandom_range 
+"syn keyword 	svTask		urandom urandom_range
 "syn keyword 	svTask		vsv_call_func vsv_call_task vsv_get_conn_err
 "syn keyword 	svTask		vsv_make_client vsv_make_server vsv_up_connections
 "syn keyword 	svTask		vsv_wait_for_done vsv_wait_for_input wait_child wait_var
@@ -88,7 +88,7 @@ syn keyword	svOperator	or inside dist not
 syn keyword	svMethods	atobin atohex atoi atooct backref bittostr capacity
 syn keyword	svMethods	compare Configure constraint_mode DisableTrigger
 syn keyword	svMethods	DoAction empty EnableCount EnableTrigger Event find
-syn keyword	svMethods	find_index find_first find_first_index find_last find_last_index 
+syn keyword	svMethods	find_index find_first find_first_index find_last find_last_index
 syn keyword	svMethods	GetAssert get_at_least get_auto_bin getc GetCount get_coverage_goal get_cov_weight
 syn keyword	svMethods	get_cross_bin_max GetFirstAssert GetName GetNextAssert
 syn keyword	svMethods	get_status get_status_msg hide hash icompare insert
@@ -105,7 +105,7 @@ syn keyword	svMethods	pre_boundary prematch pre_pack pre_pack pre_randomize
 syn keyword	svMethods	pre-randomize pre_unpack product push_back push_front putc query
 syn keyword	svMethods	query_str rand_mode randomize reserve reverse rsort search
 syn keyword	svMethods	set_at_least set_auto_bin_max set_bin_activiation
-syn keyword	svMethods	set_coverage_goal set_cov_weight set_cross_bin_max 
+syn keyword	svMethods	set_coverage_goal set_cov_weight set_cross_bin_max
 syn keyword	svMethods	size sort substr sum thismatch tolower toupper unique_index
 syn keyword	svMethods	Wait
 syn keyword	svMethods	num delete exists first last next prev
@@ -239,8 +239,8 @@ syn keyword svConstant	PAST_IT PERCENT POSEDGE PROGRAM RAWIN REGION REPORT
 syn keyword svConstant	SAMPLE SAVE SEMAPHORE SET SILENT STATE stderr
 syn keyword svConstant	stdin stdout STR STR_ERR_OUT_OF_RANGE
 syn keyword svConstant	STR_ERR_REGEXP_SYNTAX SUM TRANS VERBOSE void WAIT
-syn keyword svConstant	__LINE__ __FILE__ __DATE__ __TIME__ 
-syn keyword svConstant	__VERSION__ 
+syn keyword svConstant	__LINE__ __FILE__ __DATE__ __TIME__
+syn keyword svConstant	__VERSION__
 
 syn match   svUserConstant "\<[A-Z][A-Z0-9_]\+\>"
 syn match   svUvmMacro  "`uvm_\w\+"

@@ -97,6 +97,9 @@ function s:GetSVBlockStart(keyword, curr_lnum, mode)
   elseif a:keyword =~ '\<endgroup\>'
     let pend   = '\<endgroup\>'
     let pstart = '\<covergroup\>'
+  elseif a:keyword =~ '\<endsequence\>'
+    let pend   = '\<endsequence\>'
+    let pstart = '\<randsequence\>'
   elseif a:keyword =~ '`else'
     let pend   = '`else'
     let pstart = '`if\%[n]def'
@@ -155,7 +158,7 @@ function GetSystemVerilogIndent()
   " Define the condition when the statement ends with a one-line comment
   let sv_comment = '\%(\/\/.*\|\/\*.*\*\/\s*\)'
   let sv_block1_statement = '\%(`\@<!\<\%(if\|else\)\>\)\|' .
-        \ '\%(^\s*\<\%(for\|case\%[zx]\|do\|foreach\|randcase' .
+        \ '\%(^\s*\<\%(for\|case\%[zx]\|do\|foreach\|randcase\|randsequence' .
         \ '\|initial\|forever\|fork\|final\|specify' .
         \ '\|always\|always_comb\|always_ff\|always_latch\)\>\)'
   let sv_block2_statement = '^\s*\%(' .
