@@ -1,4 +1,4 @@
-" Language:     SystemVerilog HDL
+" Language:     SystemVerilog
 " Maintainer:   WeiChung Wu <exelion04 at gmail dot com>
 " Last Change:  Thu Aug 22 18:53:42 CST 2011
 "
@@ -107,6 +107,12 @@ function s:GetSVBlockStart(keyword, curr_lnum, mode)
     let pend   = '`endif'
     let pstart = '`if\%[n]def'
     let pmid   = '`else'
+  elseif a:keyword =~ '`uvm_object_utils_end\>'
+    let pend   = '`uvm_object_utils_end\>'
+    let pstart = '`uvm_object\%(_param\)\=_utils_begin\>'
+  elseif a:keyword =~ '`uvm_component_utils_end\>'
+    let pend   = '`uvm_component_utils_end\>'
+    let pstart = '`uvm_component\%(_param\)\=_utils_begin\>'
   else
     let pend = '\<' . a:keyword . '\>'
     "let pstart = '\<' . substitute(a:keyword,'^end','','') . '\>'
@@ -182,7 +188,9 @@ function GetSystemVerilogIndent()
         \ 'module\|class\|specify\|package\|sequence\|group\|property\)\|' . 
         \ 'join\|join_any\|join_none\)\>\|' .
         \ '[})]\|' .
-        \ '`\<\%(else\|endif\)\>'
+        \ '`\<\%(else\|endif\)\>\|' .
+        \ '`\<\%(uvm_\%(object\|component\)_utils_end\)\>'
+       
 
   if exists('b:sv_indent_verbose')
     let vverb_str = 'INDENT VERBOSE:'
@@ -271,6 +279,13 @@ function GetSystemVerilogIndent()
     \   last_line2 =~ '^\s*[^=!]\+\s*:\s*$' )
     let ind = ind + offset
     if vverb | echo vverb_str "Indent after {( statement.\n" | endif
+
+  " Indent after a '`uvm_*_utils_begin'
+  elseif last_line =~ '`uvm_\%(object\|component\)_utils_begin\>' &&
+    \ ( last_line2 !~ sv_openstat . '\s*$' ||
+    \   last_line2 =~ '^\s*[^=!]\+\s*:\s*$' )
+    let ind = ind + offset
+    if vverb | echo vverb_str "Indent after uvm_utils_begin statement.\n" | endif
 
   " De-indent for the end of one-line block
   elseif ( last_line !~ '\<\%(begin\|else\)\>' &&
