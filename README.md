@@ -12,7 +12,7 @@ Installation
 Check out from github
 
      cd ~/.vim/bundle
-     git clone git://github.com/WeiChungWu/Systemverilog.git
+     git clone git://github.com/WeiChungWu/vim-SystemVerilog.git
 
 ###Manual install details
 Copy all files into your personal vim directory, keeping the directory structure.
