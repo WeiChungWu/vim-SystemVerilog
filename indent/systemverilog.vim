@@ -331,6 +331,8 @@ function GetSystemVerilogIndent()
 
   " De-indent on the end of the block
   " join/end/endcase/endfunction/endtask/endspecify
+  " m_lnum : line of BlockStart
+  " m_lnum2: previous line number of m_lnum
   elseif curr_line =~ '^\s*\%(' . sv_end_match . '\)' &&
       \ ( curr_line !~ '^\s*\<else\>' || last_line !~ '^\s*\%(\<end\>\|}[^;]\)' )
     let block_end = matchstr(curr_line, sv_end_match)
@@ -356,7 +358,7 @@ function GetSystemVerilogIndent()
        \ last_line !~ '\<begin\>'
     call cursor(v:lnum,1)
     let m_lnum = search('^\s*\%(\<\%(end\|if\|else\|for\|foreach\|' .
-       \ 'always\|initial\|final\|fork\|repeat\|while\>\)\|'.
+       \ 'always\|initial\|final\|fork\|repeat\|while\)\>\|'.
        \ '\%(\S\+::\)\=\%(\S\+\):\)' , 'bnW')
     let sb_lnum = search('\%(' . sv_block2_statement . '\)'
        \ , 'bnW', m_lnum)
@@ -370,10 +372,11 @@ function GetSystemVerilogIndent()
        \ last_line !~ '[{]'
     call cursor(v:lnum,1)
     let m_lnum = search('^\s*\%(\<\%(if\|else\|foreach' .
-       \ '\>\)' , 'bnW')
+       \ '\)\>\|' .
+       \ '\%(`\<uvm_do\)\)' , 'bnW')
     let ind = m_lnum>0 && m_lnum<v:lnum ? indent(m_lnum) : indent(lnum)
     if vverb
-      echo vverb_str "De-indent a stand alone { statement.\n" 'l:' lnum ',m:' m_lnum ',m2:' sb_lnum
+      echo vverb_str "De-indent a stand alone { statement.\n" 'l:' lnum ',m:' m_lnum
     endif
 
   " ? TODO

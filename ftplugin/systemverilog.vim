@@ -55,5 +55,7 @@ if exists("loaded_matchit")
     \ '\<interface\>:\<endinterface\>,' .
     \ '\<clocking\>:\<endclocking\>,' .
     \ '\<randsequence\>:\<endsequence\>,' .
-    \ '\<specify\>:\<endspecify\>'
+    \ '\<specify\>:\<endspecify\>,' .
+    \ '`uvm_object\%(_param\)\=_utils_begin\>:`uvm_object_utils_end\>,' .
+    \ '`uvm_component\%(_param\)\=_utils_begin\>:`uvm_component_utils_end\>'
 endif
