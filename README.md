@@ -4,6 +4,13 @@ Author: WeiChung Wu
 
 Support SystemVerilog: indent, syntax highlight, matchit, snipMate
 
+##About
+
+The **syntax** file is modified from **Vera** syntax highlighting.  
+The **indent** file is modified from **Verilog** indent file.  
+
+
+* * *
 Installation
 ----------------
 
@@ -17,8 +24,8 @@ Check out from github
 ###Manual install details
 Copy all files into your personal vim directory, keeping the directory structure.
 
-Ex.
-Copy ftdetect/systemverilog.vim to <home>/.vim/ftdetect/systemverilog.vim
-Copy ftplugin/systemverilog.vim to <home>/.vim/ftplugin/systemverilog.vim
-Copy indent/systemverilog.vim to <home>/.vim/indent/systemverilog.vim
-Copy syntax/systemverilog.vim to <home>/.vim/syntax/systemverilog.vim
+* Ex.   
+copy `ftdetect/systemverilog.vim` to `~/.vim/ftdetect`  
+copy `ftplugin/systemverilog.vim` to `~/.vim/ftplugin`  
+copy `indent/systemverilog.vim` to `~/.vim/indent`  
+copy `syntax/systemverilog.vim` to `~/.vim/syntax`  
