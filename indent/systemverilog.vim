@@ -27,6 +27,7 @@ setlocal indentkeys=!^F,o,O,0),0},=begin,=end,=join,=endcase,=join_any,=join_non
 setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify
 setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
 setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
+setlocal indentkeys+==endgenerate
 setlocal indentkeys+==`else,=`endif
 
 " Only define the function once.
@@ -168,7 +169,7 @@ function GetSystemVerilogIndent()
         \ '\|initial\|forever\|fork\|final\|specify' .
         \ '\|always\|always_comb\|always_ff\|always_latch\)\>\)'
   let sv_block2_statement = '^\s*\%(' .
-        \ '\%(\<\%(clocking\|interface\|package' .
+        \ '\%(\<\%(clocking\|interface\|package\|generate' .
         \ '\|property\|program\|sequence\)\>\)\|' .
         \ '\%(\%(\<virtual\>\s*\)\=\<class\>\)\|' .
         \ '\%(\%(\<\S\+\s\+\)*\<\%(function\|task\)\>\)\|' .
@@ -180,12 +181,12 @@ function GetSystemVerilogIndent()
   let sv_end_statement = '\%(\<\%(' . 
         \ 'endclocking\|endinterface\|endpackage\|' .
         \ 'endproperty\|endprogram\|endsequence\|' .
-        \ 'endclass\|endfunction\|endtask\|endgroup' .
+        \ 'endclass\|endfunction\|endtask\|endgroup\|endgenerate' .
         \ '\)\>\)'
   let sv_end_match = '\<\%(' .
         \ 'end\|else\|' . 
         \ 'end\%(case\|task\|function\|clocking\|interface\|program\|' .
-        \ 'module\|class\|specify\|package\|sequence\|group\|property\)\|' . 
+        \ 'module\|class\|specify\|package\|sequence\|group\|property\|generate\)\|' . 
         \ 'join\|join_any\|join_none\)\>\|' .
         \ '[})]\|' .
         \ '`\<\%(else\|endif\)\>\|' .
@@ -406,6 +407,16 @@ function GetSystemVerilogIndent()
       endif
     endif
 
+  " keep, last endif
+  endif
+
+  " De-indent after `uvm_* macro
+  if last_line =~ '^\s*`\<uvm_fatal\>' &&
+   \ last_line2 =~ '^\s*\<if\>' &&
+   \ curr_line !~ '^\s*\%(' . sv_end_match . '\)'
+      let ind = ind - offset
+      if vverb | echo vverb_str "De-indent after uvm macro.\n" | endif
+    endif
   endif
 
   " Return the indention
