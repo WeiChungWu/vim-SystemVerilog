@@ -41,9 +41,9 @@ if exists("loaded_matchit")
   let b:match_words=
     \ '\<begin\>:\<end\>,' .
     \ '\<if\>:\<else\>,' .
-    \ '`if\%[n]def\>:`else\>:`endif\>,' .
+    \ '`if\%[n]def\>:`els\%(if\|e\)\>:`endif\>,' .
     \ '\<case\%[xz]\>\|\<randcase\>:\<endcase\>,' .
-    \ '\%(disable\s\+\)\@<!\<fork\>:\<\%(join\|join_any\|join_none\)\>,' .
+    \ '\%(disable\s\+\)\@<!\<fork\>:\<\%(join_none\|join_any\|join\)\>,' .
     \ '\<module\>:\<endmodule\>,' .
     \ '\<function\>:\<return\>:\<endfunction\>,' .
     \ '\<task\>:\<endtask\>,' .
@@ -55,6 +55,7 @@ if exists("loaded_matchit")
     \ '\<interface\>:\<endinterface\>,' .
     \ '\<clocking\>:\<endclocking\>,' .
     \ '\<randsequence\>:\<endsequence\>,' .
+    \ '\<generate\>:\<endgenerate\>,' .
     \ '\<specify\>:\<endspecify\>,' .
     \ '`uvm_object\%(_param\)\=_utils_begin\>:`uvm_object_utils_end\>,' .
     \ '`uvm_component\%(_param\)\=_utils_begin\>:`uvm_component_utils_end\>'

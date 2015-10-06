@@ -254,11 +254,11 @@ syn match svObject 	"\zs\w\+\ze\.\w"
 syn match svObject 	"\zs\w\+\ze\.\$\w"
 
 " Accept ` for # (Verilog)
-syn region	svPreCondit	start="^\s*\(`\|#\)\s*\(if\|ifdef\|ifndef\|elif\)\>" skip="\\$" end="$" end="//"me=s-1 contains=svComment,svCppString,svCharacter,svCppParen,svParenError,svNumbers,svCommentError,svSpaceError
+syn region	svPreCondit	start="^\s*\(`\|#\)\s*\(if\|ifdef\|ifndef\|elsif\)\>" skip="\\$" end="$" end="//"me=s-1 contains=svComment,svCppString,svCharacter,svCppParen,svParenError,svNumbers,svCommentError,svSpaceError
 syn match	svPreCondit	display "^\s*\(`\|#\)\s*\(else\|endif\)\>"
 if !exists("sv_no_if0")
   syn region	svCppOut	start="^\s*\(`\|#\)\s*if\s\+0\+\>" end=".\@=\|$" contains=svCppOut2
-  syn region	svCppOut2	contained start="0" end="^\s*\(`\|#\)\s*\(endif\>\|else\>\|elif\>\)" contains=svSpaceError,svCppSkip
+  syn region	svCppOut2	contained start="0" end="^\s*\(`\|#\)\s*\(endif\>\|else\>\|elsif\>\)" contains=svSpaceError,svCppSkip
   syn region	svCppSkip	contained start="^\s*\(`\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(`\|#\)\s*endif\>" contains=svSpaceError,svCppSkip
 endif
 syn region	svIncluded	display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
