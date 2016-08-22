@@ -46,8 +46,8 @@ syn keyword 	svModifier	shadow soft solve static super this typedef unpacked var
 syn keyword 	svModifier	vca virtual virtuals wildcard with
 syn keyword 	svModifier	ref const pure automatic
 
-syn keyword 	svType		reg string enum event bit semaphore
-syn keyword 	svType		rand randc integer parameter
+syn keyword 	svType		reg string enum struct event bit semaphore
+syn keyword 	svType		rand randc integer parameter localparam specparam defparam
 syn keyword 	svType		logic int mailbox input output inout unsigned time wire
 
 "syn keyword     svDeprecated	call_func call_task close_conn get_bind get_bind_id
