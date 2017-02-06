@@ -49,6 +49,7 @@ syn keyword 	svModifier	ref const pure automatic
 syn keyword 	svType		reg string enum struct event bit semaphore
 syn keyword 	svType		rand randc integer parameter localparam specparam defparam
 syn keyword 	svType		logic int mailbox input output inout unsigned time wire
+syn keyword 	svType		shortint longint byte
 
 "syn keyword     svDeprecated	call_func call_task close_conn get_bind get_bind_id
 "syn keyword     svDeprecated	get_conn_err mailbox_receive mailbox_send make_client
@@ -125,7 +126,7 @@ syn cluster	svCommentGroup	contains=svTodo
 " String and Character constants
 " Highlight special characters (those which have a backslash) differently
 syn match	svSpecial	display contained "\\\(x\x\+\|\o\{1,3}\|.\|$\)"
-syn match	svFormat	display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlL]\|ll\)\=\([bdhiuoxXDOUfeEgGcCsSpnmt]\|\[\^\=.[^]]*\]\)" contained
+syn match	svFormat	display "%\(\d\+\$\)\=[-+' #0*]*\(\d*\|\*\|\*\d\+\$\)\(\.\(\d*\|\*\|\*\d\+\$\)\)\=\([hlL]\|ll\)\=\([bdhiuoxXDBHOUfeEgGcCsSpnmt]\|\[\^\=.[^]]*\]\)" contained
 syn match	svFormat	display "%%" contained
 syn region	svString	start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=svSpecial,svFormat,@Spell
 syn region	svConcat	contained transparent oneline start='{' end='}'
