@@ -24,7 +24,7 @@ endif
 
 " A bunch of useful SV keywords
 syn keyword	svStatement	always always_comb always_ff always_latch assert
-syn keyword	svStatement	break return continue fork join disable force release assign
+syn keyword	svStatement	break return continue fork join disable force release assign alias
 syn keyword	svStatement	join_any join_none frokjoin binsof intersect wait wait_order
 
 syn keyword	svLabel		bind constraint covergroup coverpoint
@@ -40,7 +40,7 @@ syn keyword	svConditional	unique priority randsequence endsequence
 syn keyword 	svRepeat	repeat while for do foreach
 syn keyword 	svModifier	after all any around assoc_size async
 syn keyword 	svModifier	before big_endian bit_normal bit_reverse export
-syn keyword 	svModifier	extends extern little_endian local hdl_node hdl_task
+syn keyword 	svModifier	extends extern implements little_endian local hdl_node hdl_task
 syn keyword 	svModifier	negedge none packed protected posedge public rules
 syn keyword 	svModifier	shadow soft solve static super this typedef unpacked var
 syn keyword 	svModifier	vca virtual virtuals wildcard with
@@ -48,8 +48,8 @@ syn keyword 	svModifier	ref const pure automatic
 
 syn keyword 	svType		reg string enum struct event bit semaphore
 syn keyword 	svType		rand randc integer parameter localparam specparam defparam
-syn keyword 	svType		logic int mailbox input output inout unsigned time wire
-syn keyword 	svType		shortint longint byte
+syn keyword 	svType		logic int mailbox input output inout unsigned signed time wire
+syn keyword 	svType		shortint longint byte real
 
 "syn keyword     svDeprecated	call_func call_task close_conn get_bind get_bind_id
 "syn keyword     svDeprecated	get_conn_err mailbox_receive mailbox_send make_client
@@ -86,7 +86,7 @@ syn match	svOperator	"[&|\~><!*@+/=,.\^\-]"
 syn keyword	svOperator	or inside dist not
 
 " sv class methods
-syn keyword	svMethods	atobin atohex atoi atooct backref bittostr capacity
+syn keyword	svMethods	atobin atohex atoi atooct atoreal backref bittostr capacity
 syn keyword	svMethods	compare Configure constraint_mode DisableTrigger
 syn keyword	svMethods	DoAction empty EnableCount EnableTrigger Event find
 syn keyword	svMethods	find_index find_first find_first_index find_last find_last_index
@@ -244,7 +244,7 @@ syn keyword svConstant	__LINE__ __FILE__ __DATE__ __TIME__
 syn keyword svConstant	__VERSION__ 
 
 syn match   svUserConstant "\<[A-Z][A-Z0-9_]\+\>"
-syn match   svUvmMacro  "`uvm_\w\+"
+syn match   svUvmMacro  "`\(u\|o\)vm_\w\+"
 
 syn match svClass 	"\zs\w\+\ze::"
 syn match svClass 	"\zs\w\+\ze\s\+\w\+\s*[=;,)\[]" contains=svConstant,svUserConstant
