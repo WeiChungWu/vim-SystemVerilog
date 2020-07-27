@@ -2,7 +2,7 @@ SystemVerilog
 ============
 Author: WeiChung Wu
 
-Support SystemVerilog: indent, syntax highlight, matchit, snipMate
+Support SystemVerilog: indent, syntax highlight, matchit
 
 ##About
 
