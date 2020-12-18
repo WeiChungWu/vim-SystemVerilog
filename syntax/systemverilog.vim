@@ -31,7 +31,7 @@ syn keyword	svLabel		bind constraint covergroup coverpoint
 syn keyword	svLabel		class CLOCK clocking default function generate interface modport 
 syn keyword	svLabel		package program property randseq sequence specify
 syn keyword	svLabel		task 
-syn keyword	svLabel		begin initial module forever import 
+syn keyword	svLabel		begin initial module forever final import 
 syn keyword	svLabel		end endclass endfunction endgenerate endtask endprogram endmodule 
 syn keyword	svLabel		endinterface endpackage endproperty endclocking endgroup
 
@@ -40,8 +40,8 @@ syn keyword	svConditional	unique priority randsequence endsequence
 syn keyword 	svRepeat	repeat while for do foreach
 syn keyword 	svModifier	after all any around assoc_size async
 syn keyword 	svModifier	before big_endian bit_normal bit_reverse export
-syn keyword 	svModifier	extends extern implements little_endian local hdl_node hdl_task
-syn keyword 	svModifier	negedge none packed protected posedge public rules
+syn keyword 	svModifier	extends extern hdl_node hdl_task implements interconnect little_endian local
+syn keyword 	svModifier	negedge nettype none packed protected posedge public rules
 syn keyword 	svModifier	shadow soft solve static super this typedef unpacked var
 syn keyword 	svModifier	vca virtual virtuals wildcard with
 syn keyword 	svModifier	ref const pure automatic
