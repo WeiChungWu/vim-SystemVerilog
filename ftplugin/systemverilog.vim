@@ -54,6 +54,11 @@ if exists("loaded_matchit")
     \ '\<packet\>:\<endpacket\>,' .
     \ '\<interface\>:\<endinterface\>,' .
     \ '\<clocking\>:\<endclocking\>,' .
+    \ '\<property\>:\<endproperty\>,' .
+    \ '\<sequence\>:\<endsequence\>,' .
+    \ '\<package\>:\<endpackage\>,' .
+    \ '\<covergroup\>:\<endgroup\>,' .
+    \ '\<primitive\>:\<endprimitive\>,' .
     \ '\<randsequence\>:\<endsequence\>,' .
     \ '\<generate\>:\<endgenerate\>,' .
     \ '\<specify\>:\<endspecify\>,' .
